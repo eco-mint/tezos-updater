@@ -4,10 +4,9 @@ FROM tezos/tezos:master
 
 USER root
 RUN \
-	apk -Uuv add groff less python3 py-pip curl jq && \
-	pip install awscli six && \
-	apk --purge -v del py-pip && \
-	rm /var/cache/apk/*
+	apk -Uuv add groff less curl jq && \
+	apk -Uuv add python3 py3-pip && \
+	pip install six awscli
 
 COPY ./start-updater.sh /home/tezos/start-updater.sh
 RUN chmod 755 /home/tezos/start-updater.sh
