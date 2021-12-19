@@ -6,6 +6,7 @@ USER root
 RUN \
 	apk -Uuv add groff less python3 py-pip curl jq && \
 	pip install awscli && \
+	pip install six && \
 	apk --purge -v del py-pip && \
 	rm /var/cache/apk/*
 
