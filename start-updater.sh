@@ -10,10 +10,16 @@ init_node() {
 	tezos-node config init "$@" \
 		--rpc-addr="127.0.0.1:$rpcport" \
 		--net-addr="[::]:$netport" \
-		--history-mode=archive \
+		--history-mode=full \
 		--network=$network \
 		--connections $connections
-    cat /home/tezos/.tezos-node/config.json
+	if [ $? -ne 0 ]
+	then
+		echo "Node failed to be configured; exiting."
+		exit 1
+	else
+		cat /home/tezos/.tezos-node/config.json
+	fi
 }
 
 start_node() {
