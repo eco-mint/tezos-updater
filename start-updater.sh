@@ -10,7 +10,7 @@ init_node() {
 	tezos-node config init "$@" \
 		--rpc-addr="127.0.0.1:$rpcport" \
 		--net-addr="[::]:$netport" \
-		--history-mode=full \
+		--history-mode=archive \
 		--network=$network \
 		--connections $connections
 	if [ $? -ne 0 ]
