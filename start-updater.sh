@@ -8,8 +8,8 @@ netport=9732
 init_node() {
     tezos-node identity generate 26
 	tezos-node config init "$@" \
-		--rpc-addr="127.0.0.1:$rpcport" \
-		--net-addr="[::]:$netport" \
+		--rpc-addr="0.0.0.0:$rpcport" \
+		--net-addr="0.0.0.0:$netport" \
 		--history-mode=full \
 		--network=$network \
 		--connections $connections
